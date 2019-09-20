@@ -27,7 +27,7 @@ public class UDPReceiver {
 		        DatagramPacket packet = new DatagramPacket( new byte[PACKETSIZE], PACKETSIZE ) ;
 	            socket.receive( packet ) ;
 				
-				String message = "ACK: " + new String(packet.getData());
+				String message = "ACK: " + new String(packet.getData()).trim();
 				byte [] data = message.getBytes();
 				DatagramPacket sePacket = new DatagramPacket( data, 20, packet.getAddress(), packet.getPort() ) ;
 	        	socket.send( sePacket ) ;
